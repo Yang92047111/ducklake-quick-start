@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_USER=ducklake
+      - DB_PASSWORD=password
+      - DB_NAME=ducklake_db
+      - DB_SSLMODE=disable
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./test/testdata:/app/testdata
+
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_USER=ducklake
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=ducklake_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ducklake -d ducklake_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
