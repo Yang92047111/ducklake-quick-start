@@ -19,7 +19,7 @@ linters-settings:
   lll:
     line-length: 140
   goimports:
-    local-prefixes: github.com/yourname/ducklake-loader
+    local-prefixes: github.com/Yang92047111/ducklake-quick-start
   gocritic:
     enabled-tags:
       - diagnostic

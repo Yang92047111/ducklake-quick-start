@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/Yang92047111/ducklake-quick-start/internal/loader"
 	_ "github.com/lib/pq"
-	"github.com/yourname/ducklake-loader/internal/loader"
 )
 
 type PostgresRepository struct {

@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/yourname/ducklake-loader/internal/loader"
+	"github.com/Yang92047111/ducklake-quick-start/internal/loader"
 )
 
 type MemoryRepository struct {

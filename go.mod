@@ -1,4 +1,4 @@
-module github.com/yourname/ducklake-loader
+module github.com/Yang92047111/ducklake-quick-start
 
 go 1.21
 

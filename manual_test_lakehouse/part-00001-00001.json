@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Morning Run",
+    "type": "cardio",
+    "duration": 30,
+    "calories": 300,
+    "date": "2024-01-15T00:00:00Z",
+    "description": "Easy morning jog around the park"
+  },
+  {
+    "id": 2,
+    "name": "Push-ups",
+    "type": "strength",
+    "duration": 15,
+    "calories": 100,
+    "date": "2024-01-15T00:00:00Z",
+    "description": "3 sets of 15 push-ups"
+  },
+  {
+    "id": 3,
+    "name": "Yoga Session",
+    "type": "flexibility",
+    "duration": 45,
+    "calories": 150,
+    "date": "2024-01-16T00:00:00Z",
+    "description": "Relaxing yoga flow"
+  }
+]

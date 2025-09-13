@@ -1,0 +1,78 @@
+{
+  "schema": {
+    "id": 1,
+    "version": 1,
+    "fields": [
+      {
+        "name": "id",
+        "type": "int",
+        "nullable": false
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "nullable": false
+      },
+      {
+        "name": "type",
+        "type": "string",
+        "nullable": false
+      },
+      {
+        "name": "duration",
+        "type": "int",
+        "nullable": false
+      },
+      {
+        "name": "calories",
+        "type": "int",
+        "nullable": false
+      },
+      {
+        "name": "date",
+        "type": "timestamp",
+        "nullable": false
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "nullable": true
+      }
+    ],
+    "created_at": "2025-09-12T13:00:35.471447+08:00"
+  },
+  "metadata": {
+    "name": "exercises",
+    "location": "./lakehouse_data",
+    "format": "delta",
+    "created_at": "2025-09-12T13:00:35.471447+08:00",
+    "last_modified": "2025-09-12T13:00:35.471447+08:00",
+    "current_version": 0,
+    "record_count": 0,
+    "file_count": 0,
+    "size_bytes": 0,
+    "properties": {}
+  },
+  "versions": {
+    "0": {
+      "id": 0,
+      "timestamp": "2025-09-12T13:00:35.471448+08:00",
+      "description": "Table created",
+      "schema_id": 1,
+      "record_count": 0,
+      "file_count": 0,
+      "size_bytes": 0,
+      "operations": []
+    }
+  },
+  "config": {
+    "max_file_size": 104857600,
+    "min_file_size": 1048576,
+    "checkpoint_interval": 10,
+    "retention_duration": 604800000000000,
+    "enable_optimization": true,
+    "auto_compact": true,
+    "compression_codec": "snappy",
+    "partition_fields": null
+  }
+}

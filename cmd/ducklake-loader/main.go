@@ -7,18 +7,19 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/yourname/ducklake-loader/internal/api"
-	"github.com/yourname/ducklake-loader/internal/loader"
-	"github.com/yourname/ducklake-loader/internal/storage"
+	"github.com/Yang92047111/ducklake-quick-start/internal/api"
+	"github.com/Yang92047111/ducklake-quick-start/internal/loader"
+	"github.com/Yang92047111/ducklake-quick-start/internal/storage"
 )
 
 func main() {
 	var (
-		csvFile    = flag.String("csv", "", "Path to CSV file to load")
-		jsonFile   = flag.String("json", "", "Path to JSON file to load")
-		useMemory  = flag.Bool("memory", false, "Use in-memory storage instead of PostgreSQL")
-		serverMode = flag.Bool("server", false, "Run in server mode")
-		port       = flag.String("port", "8080", "Server port")
+		csvFile      = flag.String("csv", "", "Path to CSV file to load")
+		jsonFile     = flag.String("json", "", "Path to JSON file to load")
+		useMemory    = flag.Bool("memory", false, "Use in-memory storage instead of PostgreSQL")
+		useLakehouse = flag.Bool("lakehouse", false, "Use lakehouse (Delta Lake) storage")
+		serverMode   = flag.Bool("server", false, "Run in server mode")
+		port         = flag.String("port", "8080", "Server port")
 	)
 	flag.Parse()
 
@@ -28,7 +29,14 @@ func main() {
 	var repo storage.ExerciseRepository
 	var err error
 
-	if *useMemory {
+	if *useLakehouse {
+		log.Println("Using lakehouse (Delta Lake) storage")
+		lakehousePath := getEnv("LAKEHOUSE_PATH", "./lakehouse_data")
+		repo, err = storage.NewDeltaLakeRepository(lakehousePath, nil)
+		if err != nil {
+			log.Fatalf("Failed to initialize lakehouse: %v", err)
+		}
+	} else if *useMemory {
 		log.Println("Using in-memory storage")
 		repo = storage.NewMemoryRepository()
 	} else {

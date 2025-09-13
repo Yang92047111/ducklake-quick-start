@@ -4,10 +4,10 @@ import (
 	"testing"
 	"time"
 
+	"github.com/Yang92047111/ducklake-quick-start/internal/loader"
+	"github.com/Yang92047111/ducklake-quick-start/internal/storage"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"github.com/yourname/ducklake-loader/internal/loader"
-	"github.com/yourname/ducklake-loader/internal/storage"
 )
 
 func TestIntegration_LoadAndStore(t *testing.T) {

@@ -4,9 +4,9 @@ import (
 	"testing"
 	"time"
 
+	"github.com/Yang92047111/ducklake-quick-start/internal/loader"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"github.com/yourname/ducklake-loader/internal/loader"
 )
 
 func TestMemoryRepository_Insert(t *testing.T) {
